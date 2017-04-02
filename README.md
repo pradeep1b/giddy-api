@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bearbit/giddy-api.svg?branch=master)](https://travis-ci.org/bearbit/giddy-api)
+[![CircleCI](https://circleci.com/gh/bearbit/giddy-api.svg?style=svg)](https://circleci.com/gh/bearbit/giddy-api)
 [![Code Climate](https://codeclimate.com/github/bearbit/giddy-api/badges/gpa.svg)](https://codeclimate.com/github/bearbit/giddy-api)
 [![Issue Count](https://codeclimate.com/github/bearbit/giddy-api/badges/issue_count.svg)](https://codeclimate.com/github/bearbit/giddy-api)
 
