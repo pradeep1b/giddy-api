@@ -2,7 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/bearbit/giddy-api/badges/gpa.svg)](https://codeclimate.com/github/bearbit/giddy-api)
 [![Issue Count](https://codeclimate.com/github/bearbit/giddy-api/badges/issue_count.svg)](https://codeclimate.com/github/bearbit/giddy-api)
 
-Giddy Web
+Giddy API
 ======
 **Giddy** live [here](https://giddy-48ee2.firebaseapp.com/)
 
