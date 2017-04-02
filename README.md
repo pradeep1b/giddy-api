@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/gocycles/giddy-api.svg?branch=master)](https://travis-ci.org/gocycles/giddy-api)
-[![Code Climate](https://codeclimate.com/github/gocycles/giddy-api/badges/gpa.svg)](https://codeclimate.com/github/gocycles/giddy-api)
+[![Build Status](https://travis-ci.org/bearbit/giddy-api.svg?branch=master)](https://travis-ci.org/bearbit/giddy-api)
+[![Code Climate](https://codeclimate.com/github/bearbit/giddy-api/badges/gpa.svg)](https://codeclimate.com/github/bearbit/giddy-api)
+[![Issue Count](https://codeclimate.com/github/bearbit/giddy-api/badges/issue_count.svg)](https://codeclimate.com/github/bearbit/giddy-api)
 
 Giddy Web
 ======
@@ -19,11 +20,11 @@ Giddy Web
         rails s
 
 ### Contributors on GitHub
-* [Contributors](https://github.com/gocycles/giddy-api/graphs/contributors)
+* [Contributors](https://github.com/bearbit/giddy-api/graphs/contributors)
 
 
 ## License
-* see [LICENSE](https://github.com/gocycles/giddy-api/blob/master/LICENSE.md) file
+* see [LICENSE](https://github.com/bearbit/giddy-api/blob/master/LICENSE.md) file
 
 ## Version
 * Version 1.0
