@@ -7,13 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.jsonb :meta
       t.integer :status, null: false, default: 0
 
-      # omniauth
-      t.string :provider
-      t.string :uid
-
-      # has_secure_password
-      t.string :password_digest
-
       t.timestamps null: false
     end
 

@@ -14,7 +14,6 @@ gem 'rails', '~> 5.0', '>= 5.0.2'
 gem 'redis', '~> 3.0'
 
 # auth
-gem 'bcrypt', '~> 3.1.7'
 gem 'knock'
 
 # file upload
