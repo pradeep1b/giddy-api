@@ -5,7 +5,13 @@ RSpec.describe 'Giddy activities API V1', type: :request do
   let!(:activities) { create_list(:activity, 10, user: user) }
   let(:activity_id) { activities.last.id }
   let(:authenticated_header) do
-    token = Knock::AuthToken.new(payload: { sub: user.id }).token
+    token = Knock::AuthToken.new(payload: {
+        sub: user.sub,
+        email: user.email,
+        name: user.username,
+        email_verified: true,
+        picture: 'test.jpg'
+      }).token
 
     {
       'Authorization': "Bearer #{token}"
