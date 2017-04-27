@@ -4,6 +4,7 @@ RSpec.describe 'Giddy activities API V1', type: :request do
   let!(:user) { create(:user) }
   let!(:activities) { create_list(:activity, 10, user: user) }
   let(:activity_id) { activities.last.id }
+  let(:activity) { activities.last }
   let(:authenticated_header) do
     token = Knock::AuthToken.new(payload: {
         sub: user.sub,
@@ -59,13 +60,22 @@ RSpec.describe 'Giddy activities API V1', type: :request do
     end
 
     context 'when the record exists and user authenticated' do
+      let(:file) do
+        file_path = Rails.root.join('spec/fixtures/files/test_track.gpx').to_s
+        fixture_file_upload(file_path, 'text/xml')
+      end
+
       before do
+        activity.update(track: file)
         get "/api/v1/activities/#{activity_id}", headers: authenticated_header
       end
 
       it 'returns the activity' do
         expect(json).not_to be_empty
         expect(json['id']).to eq(activity_id)
+        expect(json['name']).to eq(activity.name)
+        expect(json['description']).to eq(activity.description)
+        expect(json['url']).to eq(activity.track.url)
       end
 
       it 'returns status code 200' do
