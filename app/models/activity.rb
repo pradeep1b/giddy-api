@@ -11,7 +11,8 @@ class Activity < ApplicationRecord
 
   validates_attachment :track, presence: true
   validates_attachment_content_type :track,
-                                    content_type: %w[application/gpx+xml
+                                    content_type: %w[application/octet-stream
+                                                     application/gpx+xml
                                                      text/xml
                                                      application/xml]
   validates_attachment_size :track, in: 0..25.megabytes
