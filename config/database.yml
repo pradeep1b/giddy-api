@@ -5,10 +5,14 @@ default: &default
 development:
   <<: *default
   database: giddy_dev
+  username: postgres
+  password: admin
 
 test:
   <<: *default
   database: giddy_test
+  username: postgres
+  password: admin
 
 production:
   <<: *default

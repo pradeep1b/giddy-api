@@ -8,12 +8,12 @@ git_source(:github) do |repo_name|
 end
 
 # base
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'pg', '~> 0.18.2'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0', '>= 5.0.2'
 gem 'redis', '~> 3.0'
-gem 'active_model_serializers', '~> 0.10.0'
-
+gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.2'
 # auth
 gem 'knock'
 
