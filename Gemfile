@@ -13,6 +13,7 @@ gem 'pg', '~> 0.18.2'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0', '>= 5.0.2'
 gem 'redis', '~> 3.0'
+gem 'sidekiq'
 
 # auth
 gem 'knock'
