@@ -20,7 +20,7 @@ gem 'knock'
 
 # file upload
 gem 'aws-sdk', '~> 2.3'
-gem 'paperclip', '~> 5.0.0'
+gem 'shrine'
 
 # cors
 gem 'rack-cors'
@@ -36,6 +36,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails', '~> 3.5.0'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'shrine-memory'
 end
 
 group :development do
@@ -46,3 +47,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+# windows
+gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.2'

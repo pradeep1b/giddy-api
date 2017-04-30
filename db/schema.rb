@@ -10,22 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427170512) do
+ActiveRecord::Schema.define(version: 20170429155245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
   create_table "activities", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.string   "name",               null: false
+    t.string   "name",           null: false
     t.uuid     "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "track_file_name"
-    t.string   "track_content_type"
-    t.integer  "track_file_size"
-    t.datetime "track_updated_at"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.text     "description"
+    t.text     "track_data"
+    t.text     "track_image_data"
     t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
   end
 

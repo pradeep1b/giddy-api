@@ -31,7 +31,7 @@ class Api::V1::ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.permit(:name, :track, :description)
+    params.permit(:name, :description,  :track, :track_image)
   end
 
   def set_activity

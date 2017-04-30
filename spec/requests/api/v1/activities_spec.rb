@@ -60,13 +60,7 @@ RSpec.describe 'Giddy activities API V1', type: :request do
     end
 
     context 'when the record exists and user authenticated' do
-      let(:file) do
-        file_path = Rails.root.join('spec/fixtures/files/test_track.gpx').to_s
-        fixture_file_upload(file_path, 'text/xml')
-      end
-
       before do
-        activity.update(track: file)
         get "/api/v1/activities/#{activity_id}", headers: authenticated_header
       end
 
@@ -75,7 +69,8 @@ RSpec.describe 'Giddy activities API V1', type: :request do
         expect(json['id']).to eq(activity_id)
         expect(json['name']).to eq(activity.name)
         expect(json['description']).to eq(activity.description)
-        expect(json['url']).to eq(activity.track.url)
+        expect(json['track_url']).to eq(activity.track_url)
+        expect(json['track_image_url']).to eq(activity.track_image_url)
       end
 
       it 'returns status code 200' do
@@ -139,7 +134,7 @@ RSpec.describe 'Giddy activities API V1', type: :request do
     context 'when the request is invalid and user authenticated' do
       before do
         post '/api/v1/activities',
-             params: { name: 'Foobar' },
+             params: { description: 'Foobar' },
              headers: authenticated_header
       end
 
@@ -149,7 +144,7 @@ RSpec.describe 'Giddy activities API V1', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Track can't be blank/)
+          .to match(/Validation failed: Name can't be blank/)
       end
     end
   end

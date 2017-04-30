@@ -1,4 +1,12 @@
-require 'paperclip/matchers'
+require 'shrine/storage/memory'
+require 'sidekiq/testing'
+
+Shrine.storages = {
+  cache: Shrine::Storage::Memory.new,
+  store: Shrine::Storage::Memory.new,
+}
+
+Sidekiq::Testing.inline!
 
 RSpec.configure do |config|
 
@@ -11,10 +19,4 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
-  config.include Paperclip::Shoulda::Matchers
-
-  config.after(:suite) do
-    FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_files/"])
-  end
 end
