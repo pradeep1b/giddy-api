@@ -14,3 +14,5 @@
 .rspec
 
 public/system/
+
+public/uploads/*

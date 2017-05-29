@@ -5,6 +5,17 @@ RSpec.describe 'Giddy activities API V1', type: :request do
   let!(:activities) { create_list(:activity, 10, user: user) }
   let(:activity_id) { activities.last.id }
   let(:activity) { activities.last }
+  
+  let(:track_file) do
+    file_path = Rails.root.join('spec/fixtures/files/test_track.gpx').to_s
+    fixture_file_upload(file_path, 'text/xml')
+  end
+  
+  let(:track_image_file) do
+    file_path = Rails.root.join('spec/fixtures/files/test_track_image.png').to_s
+    fixture_file_upload(file_path, 'application/png')
+  end
+  
   let(:authenticated_header) do
     token = Knock::AuthToken.new(payload: {
         sub: user.sub,
@@ -96,12 +107,7 @@ RSpec.describe 'Giddy activities API V1', type: :request do
   end
 
   describe 'POST /api/v1/activities' do
-    let(:file) do
-      file_path = Rails.root.join('spec/fixtures/files/test_track.gpx').to_s
-      fixture_file_upload(file_path, 'text/xml')
-    end
-
-    let(:valid_attributes) { { name: 'Test Activity', track: file } }
+    let(:valid_attributes) { { name: 'Test Activity', track: track_file, track_image: track_image_file } }
 
     context 'when user is not authenticated' do
       before { post '/api/v1/activities' }
@@ -149,11 +155,11 @@ RSpec.describe 'Giddy activities API V1', type: :request do
     end
   end
 
-  describe 'PUT /api/v1/activities/:id' do
-    let(:valid_attributes) { { name: 'New Name' } }
+  describe 'PATCH /api/v1/activities/:id' do
+    let(:valid_attributes) { { name: 'Test Activity', track: track_file, track_image: track_image_file } }
 
     context 'when user is not authenticated' do
-      before { post '/api/v1/activities' }
+      before { patch "/api/v1/activities/#{activity_id}" }
 
       it 'returns empty body' do
         expect(response.body).to be_empty
@@ -166,7 +172,7 @@ RSpec.describe 'Giddy activities API V1', type: :request do
 
     context 'when the record exists and user authenticated' do
       before do
-        put "/api/v1/activities/#{activity_id}",
+        patch "/api/v1/activities/#{activity_id}",
             params: valid_attributes,
             headers: authenticated_header
       end
