@@ -23,6 +23,7 @@ elsif Rails.env.development?
     cache: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/cache'), # temporary
     store: Shrine::Storage::FileSystem.new('public', prefix: 'uploads/store'), # permanent
   }
+  Shrine.plugin :default_url_options, store: {host: 'http://localhost:3000'}
 end
 
 Shrine.plugin :activerecord
