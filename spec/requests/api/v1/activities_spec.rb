@@ -18,7 +18,7 @@ RSpec.describe 'Giddy activities API V1', type: :request do
   
   let(:authenticated_header) do
     token = Knock::AuthToken.new(payload: {
-        sub: user.sub,
+        sub: user.id,
         email: user.email,
         name: user.username,
         email_verified: true,

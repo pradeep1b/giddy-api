@@ -17,6 +17,7 @@ gem 'sidekiq'
 
 # auth
 gem 'knock'
+gem 'bcrypt', '~> 3.1.7'
 
 # file upload
 gem 'aws-sdk', '~> 2.3'
