@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_one :sash
+  has_many :badges, through: :sash
   has_many :activities, dependent: :destroy
 
   enum status: %i[inactive active suspended]
