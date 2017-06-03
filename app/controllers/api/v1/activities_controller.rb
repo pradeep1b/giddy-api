@@ -5,13 +5,13 @@ class Api::V1::ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show update destroy]
 
   def index
-    @activities = current_user.activities
-    json_response(@activities)
+    activities = current_user.activities
+    json_response(activities)
   end
 
   def create
-    @activity = current_user.activities.create!(activity_params)
-    json_response(@activity, :created)
+    activity = current_user.activities.create!(activity_params)
+    json_response(activity, :created)
   end
 
   def show
